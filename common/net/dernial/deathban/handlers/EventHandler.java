@@ -31,7 +31,7 @@ public class EventHandler
                 
                 EntityPlayerMP entityplayermp = MinecraftServer.getServer().getConfigurationManager().getPlayerForUsername(deadPlayer.username);
                 
-                entityplayermp.playerNetServerHandler.kickPlayerFromServer("Banned from death.");
+                entityplayermp.playerNetServerHandler.kickPlayerFromServer(event.source.getDeathMessage(deadPlayer) + "\nBanned from death.");
             }
         }
 
