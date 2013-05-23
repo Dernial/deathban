@@ -4,7 +4,7 @@
   "name": "DeathBan",
   "description": "Adds the ability to ban players when they die forever or for a specified time.",
   "version": "@VERSION@ (build @BUILD_NUMBER@)",
-  "url": "landofthenerd.com",
+  "url": "dernial.net/deathban",
   "updateUrl": "",
   "authorList": [
     "dernial"
