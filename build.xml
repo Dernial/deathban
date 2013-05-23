@@ -55,7 +55,7 @@
 		
 		<!-- Build the jar -->
 		<mkdir dir="${build.dir.release}\${build.release.minecraft.version}\${build.release.mod.version}" />
-		<jar destfile="${build.dir.release}\${build.release.minecraft.version}\${build.release.mod.version}\deathban-universal-${build.release.mod.version}-${build_number.build_number}.jar">
+		<jar destfile="${build.dir.release}\${build.release.minecraft.version}\${build.release.mod.version}\deathban-universal-${build.release.mod.version}-build${build_number.build_number}.jar">
 			<fileset dir="${build.dir.development}\mcp\src\minecraft\" includes="mcmod.info" />
 			<fileset dir="${build.dir.development}\mcp\reobf\minecraft" />
 		</jar>
@@ -75,7 +75,7 @@
 		
 		<!-- Build the jar -->
 		<mkdir dir="${build.dir.release}\${build.release.minecraft.version}\${build.release.mod.version}" />
-		<jar destfile="${build.dir.release}\${build.release.minecraft.version}\${build.release.mod.version}\deathban-universal-${build.release.mod.version}-${build_number.build_number}.jar">
+		<jar destfile="${build.dir.release}\${build.release.minecraft.version}\${build.release.mod.version}\deathban-universal-${build.release.mod.version}-build${build_number.build_number}.jar">
 			<fileset dir="${build.dir.development}\mcp\src\minecraft\" includes="mcmod.info" />
 			<fileset dir="${build.dir.development}\mcp\reobf\minecraft" />
 		</jar>
