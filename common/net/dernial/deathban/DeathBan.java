@@ -12,10 +12,11 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.network.NetworkMod;
+import cpw.mods.fml.common.registry.GameRegistry;
 import net.dernial.deathban.commands.CommandHandler;
 import net.dernial.deathban.config.ConfigurationHandler;
-import net.dernial.deathban.handlers.EventHandler;
 import net.dernial.deathban.handlers.PlayerDeathHandler;
+import net.dernial.deathban.handlers.PlayerHandler;
 import net.dernial.deathban.lib.Reference;
 import net.dernial.deathban.handlers.BanHandler;
 import net.minecraftforge.common.MinecraftForge;
@@ -33,6 +34,8 @@ import net.minecraftforge.common.MinecraftForge;
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION)
 @NetworkMod(clientSideRequired=false, serverSideRequired=false, connectionHandler=BanHandler.class)
 public class DeathBan {
+    
+    public static PlayerHandler playerTracker;
 
     @PreInit
     public void preInit(FMLPreInitializationEvent event) {
@@ -50,13 +53,15 @@ public class DeathBan {
     @Init
     public void init(FMLInitializationEvent event) {
         // Register event handler
-        MinecraftForge.EVENT_BUS.register(new EventHandler());
+        //MinecraftForge.EVENT_BUS.register(new EventHandler());
 
     }
     
     @PostInit
     public void postInit(FMLPostInitializationEvent event) {
-        
+        playerTracker = new PlayerHandler();
+        GameRegistry.registerPlayerTracker(playerTracker);
+        MinecraftForge.EVENT_BUS.register(playerTracker);
     }
     
     @ServerStarting
