@@ -1,5 +1,6 @@
 package net.dernial.deathban.commands;
 
+import net.dernial.deathban.handlers.LanguageHandler;
 import net.dernial.deathban.handlers.PlayerDeathHandler;
 import net.dernial.deathban.lib.Command;
 import net.minecraft.command.ICommandSender;
@@ -31,9 +32,9 @@ public class CommandForgive
 
             if (!subCommand.isEmpty()) {
                 if(PlayerDeathHandler.removeBan(subCommand))
-                    commandSender.sendChatToPlayer("Player Forgiven.");
+                    commandSender.sendChatToPlayer(LanguageHandler.getLocalizedString("command.deathban.forgive.forgiven"));
                 else
-                    commandSender.sendChatToPlayer("Player not found or not banned.");
+                    commandSender.sendChatToPlayer(LanguageHandler.getLocalizedString("command.deathban.forgive.notfound"));
             }
             else
                 throw new WrongUsageException(Command.COMMAND_FORGIVE_USAGE, new Object[0]);
@@ -49,6 +50,6 @@ public class CommandForgive
      */
     public static void forgiveAll(ICommandSender commandSender) {
         PlayerDeathHandler.clearBans();
-        commandSender.sendChatToPlayer("All bans cleared.");     
+        commandSender.sendChatToPlayer(LanguageHandler.getLocalizedString("command.deathban.forgive.all"));     
     }
 }

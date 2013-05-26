@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties version="1.0">
+	<comment>English (en_US) Localization File</comment>
+	<entry key="command.deathban.enable.turned_on">Deathbans turned on.</entry>
+	<entry key="command.deathban.enable.turned_off">Deathbans turned off.</entry>
+	<entry key="command.deathban.forgive.forgiven">Player forgiven.</entry>
+	<entry key="command.deathban.forgive.notfound">Player not found or not baned.</entry>
+	<entry key="command.deathban.forgive.all">All players forgiven.</entry>
+	<entry key="command.deathban.permanent.turned_on">Deathbans are now permanent.</entry>
+	<entry key="command.deathban.permanent.turned_off">Deathbans are now timed.</entry>
+	<entry key="command.deathban.time.setto">Deathban length is now</entry>
+	<entry key="command.deathban.time.minutes">minutes.</entry>
+	<entry key="text.deathban.dead.permanent">You are dead! Death is perminant.</entry>
+	<entry key="text.deathban.dead.nonpermanent">You are dead! You may return at</entry>
+	<entry key="text.deathban.dead.nowbanned">Banned from death.</entry>
+</properties>

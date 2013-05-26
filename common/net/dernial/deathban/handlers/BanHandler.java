@@ -28,9 +28,9 @@ public class BanHandler implements IConnectionHandler
         if(ConfigurationSettings.DEATHBAN_ENABLED)
             if (PlayerDeathHandler.isBanned(netHandler.clientUsername))
                 if(ConfigurationSettings.DEATHBAN_PERMANENT)
-                    return String.format("You are dead! Death is perminant.");
+                    return String.format(LanguageHandler.getLocalizedString("text.deathban.dead.permanent"));
                 else
-                    return String.format("You are dead! You may return at %s.", PlayerDeathHandler.getReturnTime(netHandler.clientUsername));
+                    return String.format("%s %s.", LanguageHandler.getLocalizedString("text.deathban.dead.nonpermanent"), PlayerDeathHandler.getReturnTime(netHandler.clientUsername));
 
         return null;
     }

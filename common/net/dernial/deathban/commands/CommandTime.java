@@ -2,6 +2,7 @@ package net.dernial.deathban.commands;
 
 import net.dernial.deathban.config.ConfigurationHandler;
 import net.dernial.deathban.config.ConfigurationSettings;
+import net.dernial.deathban.handlers.LanguageHandler;
 import net.dernial.deathban.lib.Command;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.command.WrongUsageException;
@@ -27,7 +28,7 @@ public class CommandTime
             if (!subCommand.isEmpty()) {
                 ConfigurationSettings.DEATHBAN_BAN_MINUTES = Integer.parseInt(subCommand);
                 ConfigurationHandler.set(ConfigurationHandler.CATEGORY_GENERAL, ConfigurationSettings.DEATHBAN_BAN_MINUTES_CONFIGNAME, Integer.toString(ConfigurationSettings.DEATHBAN_BAN_MINUTES));
-                commandSender.sendChatToPlayer("DeathBan set to: " + Integer.toString(ConfigurationSettings.DEATHBAN_BAN_MINUTES) + " minutes");
+                commandSender.sendChatToPlayer(LanguageHandler.getLocalizedString("command.deathban.time.setto") + " " + Integer.toString(ConfigurationSettings.DEATHBAN_BAN_MINUTES) + " " + LanguageHandler.getLocalizedString("command.deathban.time.minutes"));
             }
             else
                 throw new WrongUsageException(Command.COMMAND_TIME_USAGE, new Object[0]);

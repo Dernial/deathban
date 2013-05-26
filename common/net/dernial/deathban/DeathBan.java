@@ -15,6 +15,7 @@ import cpw.mods.fml.common.network.NetworkMod;
 import net.dernial.deathban.commands.CommandHandler;
 import net.dernial.deathban.config.ConfigurationHandler;
 import net.dernial.deathban.handlers.EventHandler;
+import net.dernial.deathban.handlers.LanguageHandler;
 import net.dernial.deathban.handlers.PlayerDeathHandler;
 import net.dernial.deathban.lib.Reference;
 import net.dernial.deathban.handlers.BanHandler;
@@ -51,7 +52,9 @@ public class DeathBan {
     public void init(FMLInitializationEvent event) {
         // Register event handler
         MinecraftForge.EVENT_BUS.register(new EventHandler());
-
+        
+        // Load the language files
+        LanguageHandler.loadLanguages();
     }
     
     @PostInit

@@ -3,6 +3,7 @@ package net.dernial.deathban.commands;
 
 import net.dernial.deathban.config.ConfigurationHandler;
 import net.dernial.deathban.config.ConfigurationSettings;
+import net.dernial.deathban.handlers.LanguageHandler;
 import net.dernial.deathban.lib.Command;
 import net.dernial.deathban.lib.Strings;
 import net.minecraft.command.ICommandSender;
@@ -50,7 +51,7 @@ public class CommandEnable
 
         ConfigurationSettings.DEATHBAN_ENABLED = true;
         ConfigurationHandler.set(ConfigurationHandler.CATEGORY_GENERAL, ConfigurationSettings.DEATHBAN_ENABLED_CONFIGNAME, Strings.TRUE);
-        commandSender.sendChatToPlayer("DeathBan Enabled");
+        commandSender.sendChatToPlayer(LanguageHandler.getLocalizedString("command.deathban.enable.turned_on"));
     }
     
     // Enabled turned off
@@ -58,6 +59,6 @@ public class CommandEnable
 
         ConfigurationSettings.DEATHBAN_ENABLED = false;
         ConfigurationHandler.set(ConfigurationHandler.CATEGORY_GENERAL, ConfigurationSettings.DEATHBAN_ENABLED_CONFIGNAME, Strings.FALSE);
-        commandSender.sendChatToPlayer("DeathBan Disabled");    
+        commandSender.sendChatToPlayer(LanguageHandler.getLocalizedString("command.deathban.enable.turned_off"));    
     }
 }
