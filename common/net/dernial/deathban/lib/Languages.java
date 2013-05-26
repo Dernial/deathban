@@ -1,5 +1,14 @@
 package net.dernial.deathban.lib;
 
+/**
+ * Deathban
+ * 
+ * Languages
+ * 
+ * @author dernial
+ * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
+ * 
+ */
 public class Languages {
     
     private static final String LANG_RESOURCE_LOCATION = "/mods/deathban/lang/";

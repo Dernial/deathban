@@ -3,6 +3,15 @@ package net.dernial.deathban.handlers;
 import net.dernial.deathban.lib.Languages;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
+/**
+ * Deathban
+ * 
+ * LanguageHandler
+ * 
+ * @author dernial
+ * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
+ * 
+ */
 public class LanguageHandler {
 
     public static void loadLanguages() {
