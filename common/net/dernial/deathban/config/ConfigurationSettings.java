@@ -22,7 +22,7 @@ public class ConfigurationSettings
     public static final boolean DEATHBAN_PERMANENT_DEFAULT = false;    
     
     // Deathban ban time
-    public static int DEATHBAN_BAN_MINUTES;
-    public static final String DEATHBAN_BAN_MINUTES_CONFIGNAME = "deathban.bantime.minutes";
-    public static final int DEATHBAN_BAN_MINUTES_DEFAULT = 1440;
+    public static String DEATHBAN_BAN_TIME;
+    public static final String DEATHBAN_BAN_TIME_CONFIGNAME = "deathban.bantime.time";
+    public static final String DEATHBAN_BAN_TIME_DEFAULT = "0D0H10M";
 }

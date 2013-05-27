@@ -26,6 +26,6 @@ package net.dernial.deathban.lib;
     public static final String COMMAND_DEATHBAN_USAGE = "deathban [ enable | time | forgive | forgiveall ]";    
     public static final String COMMAND_ENABLE_USAGE = "deathban enable [ on | off ]";
     public static final String COMMAND_PERMANENT_USAGE = "deathban permanent [ on | off ]";
-    public static final String COMMAND_TIME_USAGE = "deathban time [ time in minutes ]";
+    public static final String COMMAND_TIME_USAGE = "deathban time [ xDxHxM (D = Days, H = Hours, M = Minutes ]";
     public static final String COMMAND_FORGIVE_USAGE = "deathban forgive [ player name ]";
 }

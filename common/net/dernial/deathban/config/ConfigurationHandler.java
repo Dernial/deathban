@@ -33,7 +33,7 @@ public class ConfigurationHandler
             /* General configs */
             ConfigurationSettings.DEATHBAN_ENABLED = configuration.get(CATEGORY_GENERAL, ConfigurationSettings.DEATHBAN_ENABLED_CONFIGNAME, ConfigurationSettings.DEATHBAN_ENABLED_DEFAULT).getBoolean(ConfigurationSettings.DEATHBAN_ENABLED_DEFAULT);
             ConfigurationSettings.DEATHBAN_PERMANENT = configuration.get(CATEGORY_GENERAL, ConfigurationSettings.DEATHBAN_PERMANENT_CONFIGNAME, ConfigurationSettings.DEATHBAN_PERMANENT_DEFAULT).getBoolean(ConfigurationSettings.DEATHBAN_PERMANENT_DEFAULT);
-            ConfigurationSettings.DEATHBAN_BAN_MINUTES = configuration.get(CATEGORY_GENERAL, ConfigurationSettings.DEATHBAN_BAN_MINUTES_CONFIGNAME, ConfigurationSettings.DEATHBAN_BAN_MINUTES_DEFAULT).getInt();
+            ConfigurationSettings.DEATHBAN_BAN_TIME = configuration.get(CATEGORY_GENERAL, ConfigurationSettings.DEATHBAN_BAN_TIME_CONFIGNAME, ConfigurationSettings.DEATHBAN_BAN_TIME_DEFAULT).getString();
             
        }
         catch (Exception e) {

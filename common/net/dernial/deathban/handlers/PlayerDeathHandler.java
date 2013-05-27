@@ -101,7 +101,12 @@ public class PlayerDeathHandler
     {
 
         Calendar cal = Calendar.getInstance();
-        cal.add(Calendar.MINUTE, ConfigurationSettings.DEATHBAN_BAN_MINUTES);
+        
+        TimeHandler clTime = new TimeHandler(ConfigurationSettings.DEATHBAN_BAN_TIME);
+        
+        cal.add(Calendar.DAY_OF_MONTH, clTime.days);
+        cal.add(Calendar.HOUR, clTime.hours);
+        cal.add(Calendar.MINUTE, clTime.minutes);
 
         setUnbanTime(sUserName, cal.getTime());
     }
