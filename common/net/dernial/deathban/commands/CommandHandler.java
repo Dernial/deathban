@@ -57,4 +57,9 @@ public class CommandHandler extends CommandBase
         else
             throw new WrongUsageException(Command.COMMAND_DEATHBAN_USAGE, new Object[0]);
     }
+
+	@Override
+	public String getCommandUsage(ICommandSender icommandsender) {
+		return Command.COMMAND_DEATHBAN_USAGE;
+	}
 }

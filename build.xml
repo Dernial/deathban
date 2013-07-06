@@ -5,9 +5,9 @@
 	<property file="build_number.properties" prefix="build_number"/>
 	
 	<target name="clean">
-		<delete file="${build.dir.development}\mcp\src\minecraft\mcmod.info" />
-		<delete dir="${build.dir.development}\mcp\src\minecraft\net\dernial" />
-		<delete dir="${build.dir.development}\mcp\reobf\minecraft" />
+		<delete file="${build.dir.development}\forge\mcp\src\minecraft\mcmod.info" />
+		<delete dir="${build.dir.development}\forge\mcp\src\minecraft\net\dernial" />
+		<delete dir="${build.dir.development}\forge\mcp\reobf\minecraft" />
 	</target>
 	
 	<target name="increment_build_number">
@@ -17,30 +17,30 @@
 	</target>
 	
 	<target name="prep">
-		<copy todir="${build.dir.development}\mcp\src\minecraft">
+		<copy todir="${build.dir.development}\forge\mcp\src\minecraft">
 			<fileset dir="${build.dir.development}\source\Deathban\common\" />
 		</copy>
 	</target>
 	
 	<target name="replace_tokens">
-		<replace dir="${build.dir.development}\mcp\src\minecraft" token="@VERSION@" value="${build.release.mod.version}" />
-		<replace dir="${build.dir.development}\mcp\src\minecraft" token="@BUILD_NUMBER@" value="${build_number.build_number}" />
+		<replace dir="${build.dir.development}\forge\mcp\src\minecraft" token="@VERSION@" value="${build.release.mod.version}" />
+		<replace dir="${build.dir.development}\forge\mcp\src\minecraft" token="@BUILD_NUMBER@" value="${build_number.build_number}" />
 	</target>
 	
 	<target name="recompile">
-		<exec dir="${build.dir.development}\mcp" executable="cmd" osfamily="windows">
+		<exec dir="${build.dir.development}\forge\mcp" executable="cmd" osfamily="windows">
 			<arg line="/c recompile.bat" />
 		</exec>
-		<exec dir="${build.dir.development}\mcp" executable="bash" osfamily="unix">
+		<exec dir="${build.dir.development}\forge\mcp" executable="bash" osfamily="unix">
 			<arg line="recompile.sh" />
 		</exec>
 	</target>
 	
 	<target name="reobfuscate">
-		<exec dir="${build.dir.development}\mcp" executable="cmd" osfamily="windows">
+		<exec dir="${build.dir.development}\forge\mcp" executable="cmd" osfamily="windows">
 			<arg line="/c reobfuscate_srg.bat" />
 		</exec>
-		<exec dir="${build.dir.development}\mcp" executable="bash" osfamily="unix">
+		<exec dir="${build.dir.development}\forge\mcp" executable="bash" osfamily="unix">
 			<arg line="reobfuscate_srg.sh" />
 		</exec>
 	</target>
@@ -56,8 +56,8 @@
 		<!-- Build the jar -->
 		<mkdir dir="${build.dir.release}\${build.release.minecraft.version}\${build.release.mod.version}" />
 		<jar destfile="${build.dir.release}\${build.release.minecraft.version}\${build.release.mod.version}\deathban-universal-${build.release.mod.version}-build${build_number.build_number}.jar">
-			<fileset dir="${build.dir.development}\mcp\src\minecraft\" includes="mcmod.info" />
-			<fileset dir="${build.dir.development}\mcp\reobf\minecraft" />
+			<fileset dir="${build.dir.development}\forge\mcp\src\minecraft\" includes="mcmod.info" />
+			<fileset dir="${build.dir.development}\forge\mcp\reobf\minecraft" />
 			<fileset dir="${build.dir.development}\source\deathban\resources" />			
 		</jar>
 		
@@ -77,8 +77,8 @@
 		<!-- Build the jar -->
 		<mkdir dir="${build.dir.release}\${build.release.minecraft.version}\${build.release.mod.version}" />
 		<jar destfile="${build.dir.release}\${build.release.minecraft.version}\${build.release.mod.version}\deathban-universal-${build.release.mod.version}-build${build_number.build_number}.jar">
-			<fileset dir="${build.dir.development}\mcp\src\minecraft\" includes="mcmod.info" />
-			<fileset dir="${build.dir.development}\mcp\reobf\minecraft" />
+			<fileset dir="${build.dir.development}\forge\mcp\src\minecraft\" includes="mcmod.info" />
+			<fileset dir="${build.dir.development}\forge\mcp\reobf\minecraft" />
 			<fileset dir="${build.dir.development}\source\deathban\resources" />			
 		</jar>
 				

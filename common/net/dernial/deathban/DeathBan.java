@@ -3,6 +3,7 @@ package net.dernial.deathban;
 import java.io.File;
 
 import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.ServerStarting;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.PostInit;
@@ -14,7 +15,7 @@ import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import net.dernial.deathban.commands.CommandHandler;
 import net.dernial.deathban.config.ConfigurationHandler;
-import net.dernial.deathban.handlers.EventHandler;
+import net.dernial.deathban.handlers.DeathEventHandler;
 import net.dernial.deathban.handlers.LanguageHandler;
 import net.dernial.deathban.handlers.PlayerDeathHandler;
 import net.dernial.deathban.lib.Reference;
@@ -35,7 +36,7 @@ import net.minecraftforge.common.MinecraftForge;
 @NetworkMod(clientSideRequired=false, serverSideRequired=false, connectionHandler=BanHandler.class)
 public class DeathBan {
 
-    @PreInit
+	@EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         // Initialize the configuration
         ConfigurationHandler.init(new File(event.getModConfigurationDirectory().getAbsolutePath() + File.separator + Reference.CHANNEL_NAME + File.separator + Reference.MOD_ID + ".cfg"));
@@ -48,21 +49,21 @@ public class DeathBan {
     }
     
 
-    @Init
+	@EventHandler
     public void init(FMLInitializationEvent event) {
         // Register event handler
-        MinecraftForge.EVENT_BUS.register(new EventHandler());
+        MinecraftForge.EVENT_BUS.register(new DeathEventHandler());
         
         // Load the language files
         LanguageHandler.loadLanguages();
     }
     
-    @PostInit
+	@EventHandler
     public void postInit(FMLPostInitializationEvent event) {
         
     }
     
-    @ServerStarting
+	@EventHandler
     public void serverStarting(FMLServerStartingEvent event){
         // Register Commands
         event.registerServerCommand(new CommandHandler());

@@ -34,7 +34,7 @@ public class LanguageHandler {
     
     public static String getLocalizedString(String key) {
 
-        return LanguageRegistry.instance().getStringLocalization(key);
+        return LanguageRegistry.instance().getStringLocalization(key, "en_US");
     }
 
 }

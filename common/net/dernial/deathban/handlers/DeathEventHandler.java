@@ -16,7 +16,7 @@ import net.minecraftforge.event.entity.living.LivingDeathEvent;
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  * 
  */
-public class EventHandler
+public class DeathEventHandler
 {
     @ForgeSubscribe
     public void entityDied(LivingDeathEvent event)

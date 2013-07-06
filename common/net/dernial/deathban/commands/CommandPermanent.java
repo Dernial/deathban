@@ -7,6 +7,7 @@ import net.dernial.deathban.lib.Command;
 import net.dernial.deathban.lib.Strings;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.command.WrongUsageException;
+import net.minecraft.util.ChatMessageComponent;
 
 /**
  * Deathban
@@ -43,13 +44,13 @@ public class CommandPermanent
 
         ConfigurationSettings.DEATHBAN_PERMANENT = true;
         ConfigurationHandler.set(ConfigurationHandler.CATEGORY_GENERAL, ConfigurationSettings.DEATHBAN_PERMANENT_CONFIGNAME, Strings.TRUE);
-        commandSender.sendChatToPlayer(LanguageHandler.getLocalizedString("command.deathban.permanent.turned_on"));
+        commandSender.sendChatToPlayer(ChatMessageComponent.func_111082_b(LanguageHandler.getLocalizedString("command.deathban.permanent.turned_on")));
     }
 
     private static void processOffCommand(ICommandSender commandSender) {
 
         ConfigurationSettings.DEATHBAN_PERMANENT = false;
         ConfigurationHandler.set(ConfigurationHandler.CATEGORY_GENERAL, ConfigurationSettings.DEATHBAN_PERMANENT_CONFIGNAME, Strings.FALSE);
-        commandSender.sendChatToPlayer(LanguageHandler.getLocalizedString("command.deathban.permanent.turned_off"));    
+        commandSender.sendChatToPlayer(ChatMessageComponent.func_111082_b(LanguageHandler.getLocalizedString("command.deathban.permanent.turned_off")));    
     }
 }

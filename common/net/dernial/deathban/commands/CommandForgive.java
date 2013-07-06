@@ -5,6 +5,7 @@ import net.dernial.deathban.handlers.PlayerDeathHandler;
 import net.dernial.deathban.lib.Command;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.command.WrongUsageException;
+import net.minecraft.util.ChatMessageComponent;
 
 /**
  * Deathban
@@ -32,9 +33,9 @@ public class CommandForgive
 
             if (!subCommand.isEmpty()) {
                 if(PlayerDeathHandler.removeBan(subCommand))
-                    commandSender.sendChatToPlayer(LanguageHandler.getLocalizedString("command.deathban.forgive.forgiven"));
+                    commandSender.sendChatToPlayer(ChatMessageComponent.func_111082_b(LanguageHandler.getLocalizedString("command.deathban.forgive.forgiven")));
                 else
-                    commandSender.sendChatToPlayer(LanguageHandler.getLocalizedString("command.deathban.forgive.notfound"));
+                    commandSender.sendChatToPlayer(ChatMessageComponent.func_111082_b(LanguageHandler.getLocalizedString("command.deathban.forgive.notfound")));
             }
             else
                 throw new WrongUsageException(Command.COMMAND_FORGIVE_USAGE, new Object[0]);
@@ -50,6 +51,6 @@ public class CommandForgive
      */
     public static void forgiveAll(ICommandSender commandSender) {
         PlayerDeathHandler.clearBans();
-        commandSender.sendChatToPlayer(LanguageHandler.getLocalizedString("command.deathban.forgive.all"));     
+        commandSender.sendChatToPlayer(ChatMessageComponent.func_111082_b(LanguageHandler.getLocalizedString("command.deathban.forgive.all")));
     }
 }

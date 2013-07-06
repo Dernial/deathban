@@ -7,6 +7,7 @@ import net.dernial.deathban.handlers.TimeHandler;
 import net.dernial.deathban.lib.Command;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.command.WrongUsageException;
+import net.minecraft.util.ChatMessageComponent;
 
 /**
  * Deathban
@@ -31,7 +32,7 @@ public class CommandTime
                 
                 ConfigurationSettings.DEATHBAN_BAN_TIME = clTime.buildString();
                 ConfigurationHandler.set(ConfigurationHandler.CATEGORY_GENERAL, ConfigurationSettings.DEATHBAN_BAN_TIME_CONFIGNAME, ConfigurationSettings.DEATHBAN_BAN_TIME);
-                commandSender.sendChatToPlayer(LanguageHandler.getLocalizedString("command.deathban.time.setto") + " " + Integer.toString(clTime.days) + " " + LanguageHandler.getLocalizedString("command.deathban.time.days") + " " + Integer.toString(clTime.hours) + " " + LanguageHandler.getLocalizedString("command.deathban.time.hours") + " " + Integer.toString(clTime.minutes) + " " + LanguageHandler.getLocalizedString("command.deathban.time.minutes"));
+                commandSender.sendChatToPlayer(ChatMessageComponent.func_111082_b(LanguageHandler.getLocalizedString("command.deathban.time.setto") + " " + Integer.toString(clTime.days) + " " + LanguageHandler.getLocalizedString("command.deathban.time.days") + " " + Integer.toString(clTime.hours) + " " + LanguageHandler.getLocalizedString("command.deathban.time.hours") + " " + Integer.toString(clTime.minutes) + " " + LanguageHandler.getLocalizedString("command.deathban.time.minutes")));
             }
             else
                 throw new WrongUsageException(Command.COMMAND_TIME_USAGE, new Object[0]);
