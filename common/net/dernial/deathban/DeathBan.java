@@ -32,7 +32,7 @@ import net.minecraftforge.common.MinecraftForge;
  * 
  */
 
-@Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION)
+@Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION, dependencies = "required-after:Forge@[7.0,);required-after:FML@[5.0.5,)")
 @NetworkMod(clientSideRequired=false, serverSideRequired=false, connectionHandler=BanHandler.class)
 public class DeathBan {
 
