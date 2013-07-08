@@ -24,8 +24,8 @@ public class CommandTime
 
         String subCommand;
 
-        if (args.length > 0) {
-            subCommand = args[0];
+        if (args.length > 1) {
+            subCommand = args[1];
 
             if (!subCommand.isEmpty()) {
                 TimeHandler clTime = new TimeHandler(subCommand);
@@ -35,9 +35,17 @@ public class CommandTime
                 commandSender.sendChatToPlayer(ChatMessageComponent.func_111082_b(LanguageHandler.getLocalizedString("command.deathban.time.setto") + " " + Integer.toString(clTime.days) + " " + LanguageHandler.getLocalizedString("command.deathban.time.days") + " " + Integer.toString(clTime.hours) + " " + LanguageHandler.getLocalizedString("command.deathban.time.hours") + " " + Integer.toString(clTime.minutes) + " " + LanguageHandler.getLocalizedString("command.deathban.time.minutes")));
             }
             else
-                throw new WrongUsageException(Command.COMMAND_TIME_USAGE, new Object[0]);
+            {
+            	sendCurrentBanTime(commandSender);
+            }
         }
-        else
-            throw new WrongUsageException(Command.COMMAND_TIME_USAGE, new Object[0]);
+        else {
+        	sendCurrentBanTime(commandSender);
+        }
+    }
+    
+    private static void sendCurrentBanTime(ICommandSender commandSender) {
+    	TimeHandler clTime = new TimeHandler(ConfigurationSettings.DEATHBAN_BAN_TIME);
+    	commandSender.sendChatToPlayer(ChatMessageComponent.func_111082_b(LanguageHandler.getLocalizedString("command.deathban.time.current") + " " + Integer.toString(clTime.days) + " " + LanguageHandler.getLocalizedString("command.deathban.time.days") + " " + Integer.toString(clTime.hours) + " " + LanguageHandler.getLocalizedString("command.deathban.time.hours") + " " + Integer.toString(clTime.minutes) + " " + LanguageHandler.getLocalizedString("command.deathban.time.minutes")));
     }
 }

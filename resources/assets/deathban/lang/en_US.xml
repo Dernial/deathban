@@ -10,6 +10,7 @@
 	<entry key="command.deathban.permanent.turned_on">Deathbans are now permanent.</entry>
 	<entry key="command.deathban.permanent.turned_off">Deathbans are now timed.</entry>
 	<entry key="command.deathban.time.setto">Deathban length is now</entry>
+	<entry key="command.deathban.time.current">Deathban length is currently</entry>
 	<entry key="command.deathban.time.days">days</entry>
 	<entry key="command.deathban.time.hours">hours</entry>
 	<entry key="command.deathban.time.minutes">minutes</entry>
