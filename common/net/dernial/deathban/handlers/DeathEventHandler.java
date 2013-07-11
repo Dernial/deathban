@@ -27,13 +27,25 @@ public class DeathEventHandler
             {
                 EntityPlayer deadPlayer = (EntityPlayer) event.entityLiving;
                 
-                PlayerDeathHandler.banPlayer(deadPlayer.username);
-                
-                EntityPlayerMP entityplayermp = MinecraftServer.getServer().getConfigurationManager().getPlayerForUsername(deadPlayer.username);
-                
-                entityplayermp.playerNetServerHandler.kickPlayerFromServer(event.source.getDeathMessage(deadPlayer) + "\n" + LanguageHandler.getLocalizedString("text.deathban.dead.nowbanned"));
+                if(event.source.getSourceOfDamage() instanceof EntityPlayer) {
+                	if(ConfigurationSettings.DEATHBAN_PVP_ENABLED)
+                		doBan(event);
+                }
+                else if(ConfigurationSettings.DEATHBAN_PVE_ENABLED)
+                	doBan(event);                
             }
         }
 
+    }
+    
+    private void doBan(LivingDeathEvent event) {
+    	EntityPlayer deadPlayer = (EntityPlayer) event.entityLiving;
+    	
+        PlayerDeathHandler.banPlayer(deadPlayer.username);
+        
+        EntityPlayerMP entityplayermp = MinecraftServer.getServer().getConfigurationManager().getPlayerForUsername(deadPlayer.username);
+        
+        entityplayermp.playerNetServerHandler.kickPlayerFromServer(event.source.getDeathMessage(deadPlayer) + "\n" + LanguageHandler.getLocalizedString("text.deathban.dead.nowbanned"));
+    	
     }
 }
