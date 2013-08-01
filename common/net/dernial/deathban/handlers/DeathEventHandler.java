@@ -1,5 +1,7 @@
 package net.dernial.deathban.handlers;
 
+import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.relauncher.Side;
 import net.dernial.deathban.config.ConfigurationSettings;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -23,7 +25,7 @@ public class DeathEventHandler
     {
         if(ConfigurationSettings.DEATHBAN_ENABLED)
         {
-            if(event.entityLiving instanceof EntityPlayer)
+        	if (((event.entityLiving instanceof EntityPlayer)) && (FMLCommonHandler.instance().getEffectiveSide() == Side.SERVER) && (FMLCommonHandler.instance().getMinecraftServerInstance().getConfigurationManager().getPlayerForUsername(((EntityPlayer)event.entityLiving).username) != null))
             {
                 EntityPlayer deadPlayer = (EntityPlayer) event.entityLiving;
                 
